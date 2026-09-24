@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment / secrets
+.env
+
+# Local datasets
+dataset/disease_clean/
+dataset/plantvillage_tiny/
+
+# Generated inspection / experiment files
+dataset_inspection/
+disease_contact_sheets/
+
+# Temporary outputs
+wrong_predictions.txt

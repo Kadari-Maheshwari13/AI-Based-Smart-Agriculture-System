@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Agriculture Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body>
+
+<div class="page-wrapper">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="hero">
+
+        <div class="hero-icon">
+            🌿
+        </div>
+
+        <div>
+            <h1>AI Agriculture Assistant</h1>
+
+            <p>
+                Intelligent crop recommendation and plant
+                disease detection using AI.
+            </p>
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN DASHBOARD
+         ===================================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- =================================================
+             CROP RECOMMENDATION
+             ================================================= -->
+
+        <section class="card crop-card">
+
+            <div class="card-header">
+
+                <div class="card-icon crop-icon">
+                    🌾
+                </div>
+
+                <div>
+                    <h2>Crop Recommendation</h2>
+
+                    <p>
+                        Find a suitable crop based on
+                        soil and weather conditions.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <form id="cropForm">
+
+                <div class="input-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="N">
+                            Nitrogen
+                            <span>N</span>
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <input
+                                type="number"
+                                id="N"
+                                name="N"
+                                step="any"
+                                placeholder="e.g. 90"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="P">
+                            Phosphorus
+                            <span>P</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="P"
+                            name="P"
+                            step="any"
+                            placeholder="e.g. 42"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="K">
+                            Potassium
+                            <span>K</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="K"
+                            name="K"
+                            step="any"
+                            placeholder="e.g. 43"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="temperature">
+                            Temperature
+                            <span>°C</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="temperature"
+                            name="temperature"
+                            step="any"
+                            placeholder="e.g. 25"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="humidity">
+                            Humidity
+                            <span>%</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="humidity"
+                            name="humidity"
+                            step="any"
+                            placeholder="e.g. 80"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="ph">
+                            Soil pH
+                        </label>
+
+                        <input
+                            type="number"
+                            id="ph"
+                            name="ph"
+                            step="any"
+                            placeholder="e.g. 6.5"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group full-width">
+
+                        <label for="rainfall">
+                            Rainfall
+                            <span>mm</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="rainfall"
+                            name="rainfall"
+                            step="any"
+                            placeholder="e.g. 200"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button">
+
+                    <span>🌱</span>
+                    Recommend Crop
+
+                </button>
+
+            </form>
+
+
+            <div id="result"></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DISEASE DETECTION
+             ================================================= -->
+
+        <section class="card disease-card">
+
+            <div class="card-header">
+
+                <div class="card-icon disease-icon">
+                    🍃
+                </div>
+
+                <div>
+
+                    <h2>Plant Disease Detection</h2>
+
+                    <p>
+                        Upload a leaf image to identify
+                        possible plant diseases.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form id="diseaseForm">
+
+
+                <div class="upload-area">
+
+                    <div class="upload-icon">
+                        📷
+                    </div>
+
+                    <h3>Upload Leaf Image</h3>
+
+                    <p>
+                        Choose a clear image of the
+                        affected leaf.
+                    </p>
+
+
+                    <label
+                        for="diseaseImage"
+                        class="upload-button">
+
+                        Choose Image
+
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="diseaseImage"
+                        name="image"
+                        accept="image/*"
+                        required
+                        hidden>
+
+
+                    <p
+                        id="fileName"
+                        class="file-name">
+                    </p>
+
+                </div>
+
+
+                <div id="imagePreviewContainer">
+
+                    <img
+                        id="imagePreview"
+                        src=""
+                        alt="Selected leaf image">
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button disease-button">
+
+                    <span>🔍</span>
+                    Detect Disease
+
+                </button>
+
+            </form>
+
+
+            <div id="diseaseResult"></div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <p>
+            AI Agriculture Assistant
+            <span>•</span>
+            Crop Recommendation
+            <span>•</span>
+            Plant Disease Detection
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
