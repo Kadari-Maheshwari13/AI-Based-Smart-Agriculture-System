@@ -101,6 +101,7 @@ AI_Agriculture_Project/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+
 ## Screenshots
 
 ### Main Interface
