@@ -101,3 +101,13 @@ AI_Agriculture_Project/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+## Screenshots
+
+### Main Interface
+![AI Agriculture Assistant](screenshots/agriculture_home.png)
+
+### Crop Recommendation
+![Crop Recommendation](screenshots/crop_recommendation.png)
+
+### Plant Disease Detection
+![Plant Disease Detection](screenshots/disease_detection.png)
